@@ -1,10 +1,9 @@
 # sendMail
-Ce projet consiste à faire des tests sur le système d'envoi d'email sur des comptes emails (gmail et autres ...) à partir d'un site web. Pour ce faire, il sera utlisé des formulaires à partir desquels nous allons nous basés pour envoyer des  messages sur des adresses emails ou sur l'adresse email d'un site sur lequel les utilisateurs pourront envoyer leurs messages.
-
+Ce projet consiste à faire des tests sur les systèmes d'envoi de messages dans des comptes emails (gmail ou autres ...). Pour ce faire, nous allons nous basés sur des formulaires . Le premier va nous permettre d'envoyer des messages à n'importe quel compte email. Le deuxième, nous permettra d'envoyer des messages à partir d'un email comme sur les sites web, précisément les formulaires de contact. 
 # formulaire_1
 Dans ce dossier nous avons trois fichiers en plus du README.md et un dosser PHPMailer. Cest trois fichiers sont : 
   # 1-index.php
-  Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master avec à la connexion avec le ficher sendMail.php. Donc dans notre index se trouve la partir visible du projet avec les balises et le link avec le css permettant ainsi d'avoir un formulaire présentable. Ainsi vous verrez ci-dessous les codes mis pour créer notre formulaire.
+  Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master en utilisation le fichier sendMail.php qui gère cette liaison. C'est dans notre index que nous retrouvons la partir visible du projet avec les balises et le link avec le fichier css permettant d'avoir un formulaire présentable. Ainsi vous verrez ci-dessous les codes utilisés pour créer notre formulaire.
 
    exemple: 
 
@@ -20,13 +19,13 @@ Dans ce dossier nous avons trois fichiers en plus du README.md et un dosser PHPM
         </form>
     </center>
 
-En vue de faire fonctionner notre formulaire des scripts php ont été mis à ce niveau. Pour commencer une lisaison a été créée avec le fifhier 'sendMail.php' dossier sur lequel figure notre systéme. 
+En vue de faire fonctionner notre formulaire, des scripts php ont été mis à ce niveau. Pour commencer une lisaison a été créée avec le fifhier 'sendMail.php' dossier sur lequel figure notre systéme. 
 
     exemple : require 'sendMail.php';
 
-Après c'est la variable $msg qui a été créée pour contenir tous les messages que notre formulaire émettra lorsqu'il y aura une requête faite par l'expéditeur. 
+Après c'est la variable $msg  pour recevoir tous les messages que notre formulaire émettra lorsqu'une requête sera faite par l'expéditeur. 
   exemple :
-Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce au code suivant.
+Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce aux codes suivants.
 
 
         $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>
@@ -62,8 +61,8 @@ Suite à cela pour permettre le fonctionnement du systéme, des conditions sont 
    
     } 
 
-La première condition énumérée s'explique du fait  que si nous avons un élément qui est supérieur à 0 figurant sur les champs de notre formulaire, alors les codes qui sont dans cette condition s'executent. Rappelons que la fonction count() permet de compter un nombre d'éléments. Ici elle nous permet de compter le nombre d'élément se trouvant sur $_POST. Par exemple chacun de ces champs ci-après. $_POST['mail'];  $_POST['sujet'];  $_POST['message'];
-Dans cette condition se trouve les variables $recipient, $subject et $message qui reçoivent pour la première les adresses emails avec $_POST['mail'] des destinaires , la deuxième l'objet de chaque message et la troisième les messages. 
+La première condition énumérée s'explique du fait  que si nous avons un élément qui est supérieur à 0 figurant sur les champs de notre formulaire, alors les codes qui sont dans cette condition s'executent. Rappelons que la fonction count() permet de compter un nombre d'éléments. Ici elle nous permet de compter le nombre d'élément se trouvant sur $_POST. C'est-à-dire ces derniéres:  $_POST['mail'];  $_POST['sujet'];  $_POST['message'];
+Dans cette condition se trouve les variables $recipient, $subject et $message qui reçoivent pour la première les adresses emails des destinaires avec $_POST['mail'], la deuxième l'objet de chaque message et la troisième les messages. 
 Suite à ces variables une autre condition est créée servant d'envoyer les requêtes (messages, mail, nom) sur un compte email. Pour ce faire c'est la fonction send_mail() copiée sur le fichier sendMail.php qui est utilisées.
 
    exemple :
@@ -73,7 +72,7 @@ Suite à ces variables une autre condition est créée servant d'envoyer les req
         if( send_mail($recipient, $subject, $message)) // sur index.php
 
 
-Donc cette condition avec la fonction send_mail() nous permette d'envoyer un message, bien sûr, si les variables $recipient, $subject et $message comportent chacune des éléments supérieurs à 0.  Ainsi d'autres condition ont été posée dans celle-ci permettant de restructurer le fonctionnement afin d'éviter des erreurs. 
+Donc cette condition la fonction send_mail() nous permet d'envoyer des messages si les variables $recipient, $subject et $message comportent chacune des éléments supérieurs à 0.  Ainsi d'autres conditions ont été posées dans celle expliquée. Ces conditions permettant de restructurer le fonctionnement du systéme d'envoi et de notre formulaire afin d'éviter des erreurs. 
 
    exemple :
   
@@ -94,7 +93,7 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
 
   Ce fichier permet à celui du précédent de fonctionner ou de faire fonctionner le systéme d'envoi de message par email . On peut dire que c'est celui de la configuration . Afin de comprendre ce fichier php il serait intéressant de le détailler .
 
-  Afin de connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée .
+  Pour connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée .
 
   exemple:
 
@@ -105,11 +104,11 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
         require 'PHPMailer-master/src/SMTP.php';
 
 
-  Après c'est la fonction send_mail() que l'on retrouve avec les mêmes variables se trouvant dans le précédent fichier.
-  Dans la fonction nous retrouvons la variable $mail qui recoit new PHPMailer() et à qui on affecte d'autres objets et fonctions. Parmi eux nous allons évoqués les plus importants et utiles.
+  Ensuite c'est la fonction send_mail() que l'on retrouve avec les mêmes variables du précédent fichier.
+  Dans cette fonction nous retrouvons aussi la variable $mail qui recoit new PHPMailer() et à qui on affecte d'autres objets et fonctions. Parmi eux nous allons évoqués les plus importants et utiles.
 
    # $mail->Host = ''; 
-  dans ce cas de figure  c'est à nous de d'entrer le SMTP du site par lequel nous voulons enregistrer le Username ou l'email expéditeur de message c'est-à-dire notre boîte email . Exemple si vous utilisez gmail son Host sera:
+  dans ce cas de figure, c'est à nous d'entrer le SMTP du site par lequel nous voulons enregistrer le Username ou l'email expéditeur de message c'est-à-dire notre compte email . Exemple si vous utilisez gmail son Host sera:
 
     $mail->Host = 'smtp.gmail.com';
 
@@ -123,12 +122,12 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
     $mail->Port = '587';
 
    # $mail->Username = ''; 
-   Dans Username il est demande de mettre votre email qui va expédier les messages que vous comptez envoyer. Parexmple
+   Dans Username il est demandé de mettre votre email expédieur des messages que vous comptez envoyer. Parexmple
 
     $mail->Username = 'exemple@gmail.com';
 
    # $mail->Password = '';
-   A ce niveau il est plus prudent de mettre si votre compte est protégé " une mot de passe des applications" si vous utilisez un compte Gmail . Pour ce faire, il faut vous connecter dans votre compte précisément sur Google compte vous cliquez sur Sécurité  ensuite vous défiler un peu vers le bas vous Verrez "Connexion à Google". Arriver à ce niveau , après Mot de Passe et Validation en deux étapes qui doivent être active ou activée vous cliquez sur "Mots de passe des applications". Là on vous demandera d'entrer le mot de passe de votre compte. Aprés vous serez dans l'interface "Mots de passe des applications" vous cliquez sur "Sélectionner une l'application" ensuite vous cliquez sur "Autre (Nom personnalisé)"; il vous sera demandé de d'entrer le nom de l'application vous choisissez simplement "sendmail" ou le nomque vous voulez différents ceux qu'on a déjà mis et enfin vous cliquez sur Générer là une clé vous sera donnée. C'est elle que vous allez copier et coller ici $mail->Password = ''; .
+   A ce niveau il est plus prudent de mettre si votre compte est protégé " une mot de passe des applications" quand vous utilisez un compte Gmail . Pour ce faire, il faut vous connecter dans votre compte précisément sur l'interface "Google compte" vous cliquez sur Sécurité  ensuite vous défilez un peu vers le bas vous verrez "Connexion à Google". Arriver à ce niveau , après Mot de Passe et Validation en deux étapes qui doit être active ou activée  il faut maintenant cliquer sur "Mots de passe des applications". Là on vous demandera d'entrer le mot de passe de votre compte. Aprés vous serez dans l'interface "Mots de passe des applications" vous cliquez sur "Sélectionner une l'application" puis sur "Autre (Nom personnalisé)"; il vous sera demandé d'entrer le nom de l'application, de ce fait, vous choisissez simplement "sendmail" ou le nom que vous voulez mais qui sera différent de ceux qu'on a déjà mis et enfin vous cliquez sur Générer. Ainsi une clé sera générée. C'est elle que vous allez copier et coller ici $mail->Password = ''; .
     
 
    # $mail->SetFrom("Mettez votre email ici", "Mettez votre nom ici");
