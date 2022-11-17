@@ -5,7 +5,9 @@ Ce projet consiste à faire des tests sur le système d'envoi d'email sur des co
 Dans ce dossier nous avons trois fichiers en plus du README.md et un dosser PHPMailer. Cest trois fichiers sont : 
   # index.php
   Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master avec à la connexion avec le ficher sendMail.php. Donc dans notre index se trouve la partir visible du projet avec les balises et le link avec le css permettant ainsi d'avoir un formulaire présentable. Ainsi vous verrez ci-dessous les codes mis pour créer notre formulaire.
+
    exemple: 
+
     <center>
         <form action="" method="post">
             <h2>Formulaire d'envoi de message à un destinataire</h2>
@@ -19,17 +21,22 @@ Dans ce dossier nous avons trois fichiers en plus du README.md et un dosser PHPM
     </center>
 
 En vue de faire fonctionner notre formulaire des scripts php ont été mis à ce niveau. Pour commencer une lisaison a été créée avec le fifhier 'sendMail.php' dossier sur lequel figure notre systéme. 
-    exemple: 
+
+    exemple : 
 require 'sendMail.php';
 
 Après c'est la variable $msg qui a été créée pour contenir tous les messages que notre formulaire émettra lorsqu'il y aura une requête faite par l'expéditeur. 
   exemple :
-Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce au code suivant:
+Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce au code suivant.
+
   $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>";
-Où encore si le champs email est vide :
+
+Où encore si le champs email est vide
+
   $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
 
 Suite à cela pour permettre le fonctionnement du systéme, des conditions sont utilisées :
+
   if(count($_POST) > 0){
      $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
     $subject= $_POST['sujet']; // L'objet de votre Message
@@ -80,9 +87,9 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
 
   # sendMail.php
 
-  Ce fichier permet à celui du précédent de fonctionner ou de faire fonctionner le systéme d'envoi de message par email . On peut dire que c'est celui de la configuration . Afin de comprendre ce fichier php il serait intéressant de le détailler : 
+  Ce fichier permet à celui du précédent de fonctionner ou de faire fonctionner le systéme d'envoi de message par email . On peut dire que c'est celui de la configuration . Afin de comprendre ce fichier php il serait intéressant de le détailler .
 
-  Afin de connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée :
+  Afin de connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée .
     exemple
   require 'PHPMailer-master/src/Exception.php';
   require 'PHPMailer-master/src/PHPMailer.php';
@@ -118,7 +125,7 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
 # style.css 
 Grâce à ce fichier notre formulaire reste présentable.
 
---------------------------------------////-------------------------------------------------------------------////----
+
 
 # PHPMailer-master 
 Dans ce dossier aucune modification à apporter nous le laissons comme tel. 
