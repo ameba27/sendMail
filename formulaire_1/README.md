@@ -28,15 +28,21 @@ Après c'est la variable $msg qui a été créée pour contenir tous les message
   exemple :
 Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce au code suivant.
 
+
   $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>
   $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
 
+
 Suite à cela pour permettre le fonctionnement du systéme, des conditions sont utilisées :
+
 
   if(count($_POST) > 0){
      $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
+
     $subject= $_POST['sujet']; // L'objet de votre Message
-    $message= $_POST['message']; // Le message lui-même
+
+    $message= $_POST['message']; // Le message lui-même.....
+
 
     if( send_mail($recipient, $subject, $message)){
         if(empty($recipient)){
@@ -93,7 +99,9 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
 
     exemple
   require 'PHPMailer-master/src/Exception.php';
+
   require 'PHPMailer-master/src/PHPMailer.php';
+
   require 'PHPMailer-master/src/SMTP.php';
 
 
