@@ -96,9 +96,8 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
   Ce fichier permet à celui du précédent de fonctionner ou de faire fonctionner le systéme d'envoi de message par email . On peut dire que c'est celui de la configuration . Afin de comprendre ce fichier php il serait intéressant de le détailler .
 
   Afin de connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée .
-
     exemple:
-    
+
   require 'PHPMailer-master/src/Exception.php';
 
   require 'PHPMailer-master/src/PHPMailer.php';
