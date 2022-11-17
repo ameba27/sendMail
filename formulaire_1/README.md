@@ -3,7 +3,7 @@ Ce projet consiste à faire des tests sur le système d'envoi d'email sur des co
 
 # formulaire_1
 Dans ce dossier nous avons trois fichiers en plus du README.md et un dosser PHPMailer. Cest trois fichiers sont : 
-  # index.php
+  # 1-index.php
   Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master avec à la connexion avec le ficher sendMail.php. Donc dans notre index se trouve la partir visible du projet avec les balises et le link avec le css permettant ainsi d'avoir un formulaire présentable. Ainsi vous verrez ci-dessous les codes mis pour créer notre formulaire.
 
    exemple: 
@@ -90,7 +90,7 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
 
 
 
-  # sendMail.php
+  # 2-sendMail.php
 
   Ce fichier permet à celui du précédent de fonctionner ou de faire fonctionner le systéme d'envoi de message par email . On peut dire que c'est celui de la configuration . Afin de comprendre ce fichier php il serait intéressant de le détailler .
 
@@ -138,7 +138,7 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
 
 
 
-# style.css 
+# 3-style.css 
 Grâce à ce fichier notre formulaire reste présentable.
 
 
