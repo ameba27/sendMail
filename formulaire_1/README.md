@@ -29,39 +29,38 @@ Après c'est la variable $msg qui a été créée pour contenir tous les message
 Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce au code suivant.
 
 
-  $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>
-  $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
+        $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>
+        $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
 
 
 Suite à cela pour permettre le fonctionnement du systéme, des conditions sont utilisées :
 
 
-  if(count($_POST) > 0){
-     $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
+    if(count($_POST) > 0){
+         $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
 
-    $subject= $_POST['sujet']; // L'objet de votre Message
+        $subject= $_POST['sujet']; // L'objet de votre Message
 
-    $message= $_POST['message']; // Le message lui-même.....
+        $message= $_POST['message']; // Le message lui-même
 
+        if( send_mail($recipient, $subject, $message)){
+            if(empty($recipient)){
+                $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
+            }
+            if (empty($subject)) {
+                 $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral, padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer l'objet de votre message</p>";
+            }   
 
-    if( send_mail($recipient, $subject, $message)){
-        if(empty($recipient)){
-            $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
+            if(empty($message)){
+                $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
+            }
+
+            $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>";
+        } else {
+            $msg = "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Désolé votre message n'a pas été envoyé, Veuillez réessayer </p>";
         }
-        if (empty($subject)) {
-            $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral, padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer l'objet de votre message</p>";
-        }   
-
-        if(empty($message)){
-            $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
-        }
-
-        $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>";
-     } else {
-        $msg = "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Désolé votre message n'a pas été envoyé, Veuillez réessayer </p>";
-    }
    
-} 
+    } 
 
 La première condition énumérée s'explique du fait  que si nous avons un élément qui est supérieur à 0 figurant sur les champs de notre formulaire, alors les codes qui sont dans cette condition s'executent. Rappelons que la fonction count() permet de compter un nombre d'éléments. Ici elle nous permet de compter le nombre d'élément se trouvant sur $_POST. Par exemple chacun de ces champs ci-après. $_POST['mail'];  $_POST['sujet'];  $_POST['message'];
 Dans cette condition se trouve les variables $recipient, $subject et $message qui reçoivent pour la première les adresses emails avec $_POST['mail'] des destinaires , la deuxième l'objet de chaque message et la troisième les messages. 
@@ -69,9 +68,9 @@ Suite à ces variables une autre condition est créée servant d'envoyer les req
 
    exemple :
 
- function send_mail($recipient,$subject,$message) //pris sur sendMail.php
+        function send_mail($recipient,$subject,$message) //pris sur sendMail.php
 
- if( send_mail($recipient, $subject, $message)) // sur index.php
+        if( send_mail($recipient, $subject, $message)) // sur index.php
 
 
 Donc cette condition avec la fonction send_mail() nous permette d'envoyer un message, bien sûr, si les variables $recipient, $subject et $message comportent chacune des éléments supérieurs à 0.  Ainsi d'autres condition ont été posée dans celle-ci permettant de restructurer le fonctionnement afin d'éviter des erreurs. 
