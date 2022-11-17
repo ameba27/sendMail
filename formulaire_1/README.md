@@ -98,6 +98,7 @@ Donc cette condition avec la fonction send_mail() nous permette d'envoyer un mes
   Afin de connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée .
     exemple:
 
+
   require 'PHPMailer-master/src/Exception.php';
 
   require 'PHPMailer-master/src/PHPMailer.php';
