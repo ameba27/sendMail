@@ -1,0 +1,46 @@
+body {
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 30em;
+    border: 1px solid black;
+    padding: 1em;
+    margin-top: 3em;
+    background-color: grey;
+
+}
+
+form h2 {
+    font-size: 1.7em;
+    color: white;
+}
+
+
+form #sujet {
+    width: 89%;
+}
+
+form input {
+    margin: auto;
+    width: 27em;
+    height: 3em;
+    margin-bottom: 1.3em;
+}
+
+#email {
+    width: 89%;
+}
+
+#message {
+width: 89%;
+margin: auto;
+}
+
+#bouton {
+    color: white;
+    background-color: black;
+}
