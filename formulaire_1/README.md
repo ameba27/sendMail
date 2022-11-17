@@ -1,5 +1,5 @@
 # sendMail
-Ce projet consiste à faire des tests sur le système d'envoi d'email sur des comptes emails(gmail et autres ...) à partir d'un site web. Pour ce faire, il sera utlisé des formulaires à partir desquels nous allons basés pour envoyer nos mails.
+Ce projet consiste à faire des tests sur le système d'envoi d'email sur des comptes emails (gmail et autres ...) à partir d'un site web. Pour ce faire, il sera utlisé des formulaires à partir desquels nous allons nous basés pour envoyer des  messages sur des adresses emails ou sur l'adresse email d'un site sur lequel les utilisateurs pourront envoyer leurs messages.
 
 # formulaire_1
 Dans ce dossier nous avons trois fichiers en plus du README.md et un dosser PHPMailer. Cest trois fichiers sont : 
