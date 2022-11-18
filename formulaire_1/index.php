@@ -36,7 +36,7 @@ if(count($_POST) > 0){
 <body>
     <center>
         <form action="" method="post">
-            <h2>Formulaire d'envoi de message à un destinataire</h2>
+            <h2>Formulaire d'envoi de message à plusieurs destinataires</h2>
             <?= $msg ?>
            
             <input type="email" name="mail" id="email" placeholder="Entrez l'Adresse Email du Destinataire ">

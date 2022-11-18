@@ -1,0 +1,59 @@
+body {
+    box-sizing: border-box;
+}
+
+form {
+    margin: auto; 
+    width: 70vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-top: 2.5em;
+    align-items: center;
+    background-color: lightblue;
+    padding: 2em;
+}
+
+form input {
+    width: 80%;
+    height: 2.9em;
+}
+
+form input[name="sujet"] {
+    margin-bottom : 1.8em;
+}
+
+form h2 {
+    font-weight: 800;
+    font-size: 1.8em;
+    
+}
+
+#first {
+    display: flex;
+    margin-bottom: 1.7em;
+}
+
+#left {
+    margin-right: 3.3em;
+    width: 25em;
+}
+
+#right {
+    margin-left: 3.3em;
+    width: 25em;
+}
+
+#message {
+    width: 80%;
+    margin-bottom: 1.2em;
+    height: 14em;
+}
+
+#bouton {
+    width: 20em;
+    background-color: black;
+    color: white;
+    margin-left: 2em;
+}
