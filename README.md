@@ -144,10 +144,8 @@ Grâce à ce fichier notre formulaire reste présentable.
 
 # PHPMailer-master 
 Dans ce dossier aucune modification à apporter nous le laissons comme tel. 
-
-
-
-
+#
+#
 
 # formulaire_2
 Représentant notre deuxième et dernier formulaire, ce dossier a deux fichiers et un dossier nommé PHPMailer. L'objectif de ce formulaire et d'envoyer des messages à un seul destinataire comme sur les sites web avec les formulaires de contact d'où il tire son nom. Afin de comprendre le systéme mis dans ce formulaire il convient d'expliquer chaque fichier et leurs codes et aussi les dossiers.
