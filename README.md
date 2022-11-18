@@ -182,4 +182,4 @@ exemple:
 - la deuxième partie: elle est la plus importante mais la plupart des codes ont été déjà vus avec le formulaire_1.
 Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rien en dehors de notre condition mais qui a le même rôle que celui du premier formulaire, de même pour "use". Ils sont suivis par une condition :
 
-     if(isset($_POST['envoi']))  Dans cette condition nous cherchons à savoir si $_POST['envoi'] existe . Si tel est le cas alors les codes qui sont en son sein s'executent. 
+     if(isset($_POST['envoi']))  Dans cette condition nous cherchons à savoir si $_POST['envoi'] existe . Si tel est le cas alors les codes qui sont en son sein s'executent. En son sein on retrouve la fonction require() qui transporte les données qui trouvent dans 
