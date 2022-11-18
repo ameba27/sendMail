@@ -1,7 +1,7 @@
 # sendMail
 Ce projet consiste à faire des tests sur les systèmes d'envoi de messages dans des comptes emails (gmail ou autres ...). Pour ce faire, nous allons nous basés sur des formulaires . Le premier va nous permettre d'envoyer des messages à n'importe quel compte email. Le deuxième, nous permettra d'envoyer des messages à partir d'un email comme sur les sites web, précisément les formulaires de contact. 
 # formulaire_1
-Dans ce dossier nous avons trois fichiers en plus du README.md et un dosser PHPMailer. Cest trois fichiers sont : 
+Dans ce dossier nous avons trois fichiers et un dosser PHPMailer. Cest trois fichiers sont : 
   # 1-index.php
   Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master en utilisation le fichier sendMail.php qui gère cette liaison. C'est dans notre index que nous retrouvons la partir visible du projet avec les balises et le link avec le fichier css permettant d'avoir un formulaire présentable. Ainsi vous verrez ci-dessous les codes utilisés pour créer notre formulaire.
 
@@ -144,3 +144,41 @@ Grâce à ce fichier notre formulaire reste présentable.
 
 # PHPMailer-master 
 Dans ce dossier aucune modification à apporter nous le laissons comme tel. 
+
+
+
+
+
+# formulaire_2
+Représentant notre deuxième et dernier formulaire, ce dossier a deux fichiers et un dossier nommé PHPMailer. L'objectif de ce formulaire et d'envoyer des messages à un seul destinataire comme sur les sites web avec les formulaires de contact d'où il tire son nom. Afin de comprendre le systéme mis dans ce formulaire il convient d'expliquer chaque fichier et leurs codes et aussi les dossiers.
+
+# index.php
+Pour expliquer notre page ou fichier index.php nous allons le cinder en deux parties : l'une avec les codes html et l'autre avec les scripts php. 
+
+- La première partie : facile pour tout codeur donc ce n'est pas la peine d'expliquer. 
+
+exemple: 
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+        <link rel="stylesheet" href="./style.css">
+        </head>
+        <body>
+            <form action="" method="post">
+                <h2><i> Formulaire de contact </i></h2>
+                        <?= $msg ?>
+                <p id="first">
+                    <input type="text" name="nom" id="left" placeholder="Entrez votre nom complet...">
+                    <input type="email" name="mail" id="right" placeholder="Entrez votre email...">
+                </p>
+                <input type="text" name="sujet" placeholder="Entrez l'objet de votre message...">
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrivez votre message..."></textarea>
+                <input type="submit" name="envoi"  id="bouton" value="Envoyer">
+            </form>
+        </body>
+        </html>
+
+
+- la deuxième partie: la plus importante mais 
