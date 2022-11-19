@@ -209,4 +209,4 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
 
             $mail->addReplyTo(); 
 
-            Les mêmes données sont mises sur addReplyTo();
+            Les mêmes données sont mises sur addReplyTo(); 
