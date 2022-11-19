@@ -212,4 +212,12 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
             Les mêmes données sont mises sur addReplyTo(); 
 
 
-    Après c'est la partie représentant le corps de l'email c'est-à-dire ce que le destinataire verra lorsque l'email sera envoyé. Pour cela $mail->isHTML() le préside. Il est suivi par   $mail->Subject = $_POST['sujet'];  qui fait référence à l'objet du message. Puis de $mail->Body = $body; pour lequel j'ai affecté $body qui est un choix fait pour structurer la présentation du message lorsque le destinataire le verra.
+    Après c'est la partie représentant le corps de l'email c'est-à-dire ce que le destinataire verra lorsque l'email sera envoyé. Pour cela $mail->isHTML() le préside. Il est suivi par   $mail->Subject = $_POST['sujet'];  qui fait référence à l'objet du message. Puis de $mail->Body = $body; pour lequel j'ai affecté $body qui est un choix fait pour structurer la présentation du message lorsque le destinataire le verra vous pourrez faire autrement.
+
+             $body= "<h3>".$_POST['nom']."</h3> <br> 
+            <h3>".$_POST['mail']."</h3> <br> 
+            <article style=\"font-size: 1.19em; font-weight: 400\">". $_POST['message']."</article>"; // Ce n'est pas obligatoire je l'ai fait pour structurer mon message
+
+            $mail->isHTML();
+            $mail->Subject = $_POST['sujet'];
+            $mail->Body = $body;
