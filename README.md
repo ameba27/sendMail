@@ -205,7 +205,7 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
 
             $mail->setFrom(); 
 
-            Ci-dessus, au lieu de mettre directement l'email et le nom de son expéditeur, il sera mis $_POST['mail'] et $_POST['nom'] en vue de récupérer les l'email et et le nom qui seront entrer par l'expéditeur à partir du formulaire.
+            Ci-dessus, au lieu de mettre directement l'email et le nom de son expéditeur, il sera mis $_POST['mail'] et $_POST['nom'] en vue de récupérer l'email et le nom qui seront entrer par l'expéditeur à partir du formulaire.
 
             $mail->addReplyTo(); 
 
