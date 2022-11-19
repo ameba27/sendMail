@@ -201,4 +201,12 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
              $mail->Password = ''; // Mot de passe des applications comme expliqué sur le formulaire_1
 
     
-    
+    Par contre des petites modifications ont été apportées au niveau de : 
+
+            $mail->setFrom(); 
+
+            Ci-dessus, au lieu de mettre directement l'email et le nom de son expéditeur, il sera mis $_POST['mail'] et $_POST['nom'] en vue de récupérer les l'email et et le nom qui seront entrer par l'expéditeur à partir du formulaire.
+
+            $mail->addReplyTo(); 
+
+            Les mêmes données sont mises sur addReplyTo();
