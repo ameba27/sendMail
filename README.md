@@ -1,4 +1,14 @@
 # sendMail
+<<<<<<< HEAD
+Dans notre repository, nous avons  le dossier formulaire_1 
+
+# formulaire_1
+Dans ce dosser se trouve trois fichiers et un dossier. Parmi ces trois (3) fichiers se trouve :
+  
+  # index.php
+  C'est le fichier principal celui qui contient le formulaire mais aussi les codes php permettant d'envoyer un message
+  par email. En ce qui concerne le formumaire  ce sont les codes suivants qui sont utilisés :
+=======
 Ce projet consiste à faire des tests sur les systèmes d'envoi de messages dans des comptes emails (gmail ou autres ...). Pour ce faire, nous allons nous basés sur des formulaires . Le premier va nous permettre d'envoyer des messages à n'importe quel compte email. Le deuxième, nous permettra d'envoyer des messages à partir d'un email comme sur les sites web, précisément les formulaires de contact. 
 # formulaire_1
 Dans ce dossier nous avons trois fichiers et un dosser PHPMailer. Cest trois fichiers sont : 
@@ -6,6 +16,7 @@ Dans ce dossier nous avons trois fichiers et un dosser PHPMailer. Cest trois fic
   Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master en utilisation le fichier sendMail.php qui gère cette liaison. C'est dans notre index que nous retrouvons la partir visible du projet avec les balises et le link avec le fichier css permettant d'avoir un formulaire présentable. Ainsi vous verrez ci-dessous les codes utilisés pour créer notre formulaire.
 
    exemple: 
+>>>>>>> 76b961f9495b5b1c95bd754d2437307fffd4560e
 
     <center>
         <form action="" method="post">
@@ -14,11 +25,31 @@ Dans ce dossier nous avons trois fichiers et un dosser PHPMailer. Cest trois fic
            
             <input type="email" name="mail" id="email" placeholder="Entrez l'Adresse Email du Destinataire ">
             <input type="text" name="sujet" id="sujet" placeholder="Entrez l'objet de votre message">
+<<<<<<< HEAD
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Veuillez écrire votre message"></textarea>
+=======
             <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrivez votre message"></textarea>
+>>>>>>> 76b961f9495b5b1c95bd754d2437307fffd4560e
             <input type="submit" name="soumette" value="Envoyer" id="bouton">
         </form>
     </center>
 
+<<<<<<< HEAD
+Cette partie reste facile et libre à faire pour tout codeur.
+
+La partie qui va suivre est constitué la plus importante car c'est grâce à elle que le système d'envoi marche. Elle est la suivante :
+
+<?php
+require 'sendMail.php'; 
+
+$msg= "";
+if(count($_POST) > 0){
+     $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
+    $subject= $_POST['sujet']; // L'objet de votre Message
+    $message= $_POST['message']; // Le message lui-même
+
+    if( send_mail($recipient, $subject, $message)){
+=======
 En vue de faire fonctionner notre formulaire, des scripts php ont été mis à ce niveau. Pour commencer une lisaison a été créée avec le fifhier 'sendMail.php' dossier sur lequel figure notre systéme. 
 
     exemple : require 'sendMail.php';
@@ -76,6 +107,7 @@ Donc cette condition la fonction send_mail() nous permet d'envoyer des messages 
 
    exemple :
   
+>>>>>>> 76b961f9495b5b1c95bd754d2437307fffd4560e
         if(empty($recipient)){
             $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
         }
@@ -83,6 +115,20 @@ Donc cette condition la fonction send_mail() nous permet d'envoyer des messages 
             $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral, padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer l'objet de votre message</p>";
         }   
 
+<<<<<<< HEAD
+        if(empty($message)){
+            $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
+        }
+
+        $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>";
+     } else {
+        $msg = "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Désolé votre message n'a pas été envoyé, Veuillez réessayer </p>";
+    }
+   
+} 
+
+Le 
+=======
         if(empty($message)) {
             $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
         }
@@ -212,7 +258,9 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
             Les mêmes données sont mises sur addReplyTo(); 
 
 
-    Après c'est la partie représentant le corps de l'email c'est-à-dire ce que le destinataire verra lorsque l'email sera envoyé. Pour cela $mail->isHTML() le préside. Il est suivi par   $mail->Subject = $_POST['sujet'];  qui fait référence à l'objet du message. Puis de $mail->Body = $body; pour lequel j'ai affecté $body qui est un choix fait pour structurer la présentation du message lorsque le destinataire le verra vous pourrez faire autrement.
+     Après c'est la partie représentant le corps de l'email c'est-à-dire ce que le destinataire verra lorsque l'email sera envoyé. Pour cela $mail->isHTML() le préside. Il est suivi par   $mail->Subject = $_POST['sujet'];  qui fait référence à l'objet du message. Puis de $mail->Body = $body; pour lequel j'ai affecté $body qui est un choix fait pour structurer la présentation du message lorsque le destinataire le verra vous pourrez faire autrement.
+
+        Exemple:
 
              $body= "<h3>".$_POST['nom']."</h3> <br> 
             <h3>".$_POST['mail']."</h3> <br> 
@@ -221,3 +269,42 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
             $mail->isHTML();
             $mail->Subject = $_POST['sujet'];
             $mail->Body = $body;
+
+
+    Suite à ça une autre condition est créée pour envoyer des messages dans celle-ci la fonction permettant d'envoyer un mail est utilisé send(). Dans cette cette condition si le message est envoyé l'expéditeur verra sur le formulaire un message lui indiquant que c'est fait. Par contre si tel n'est pas le cas il verra un message indiquant le contraire. Tout cela grâce à la variable $msg .
+
+        Exemple
+
+
+                 if($mail->send()){
+       
+                    $msg= '<p style="color: green; background-color: lightgreen; padding: 0.5em; width: 100%; text-align: center"> Merci '.$_POST['nom'].' de nous avoir contacté. Vous recevrez bientôt une réponse </p>'; 
+                    }else {
+                    $msg= "<p style=\"color: red; background-color: lightcoral; padding: 0.5em; width: 100%; text-align: center\">Une erreur s'est produite. Veuillez réessayer </p>";
+                }
+        
+        NB: La Condition ci-dessous est ajoutée pour que lorsque les champs sont vides aucun envoi ne se fera.
+
+
+                 if(!empty($_POST['nom']) && !empty($_POST['mail']) && !empty($_POST['message'])){
+
+                     }else{
+                            $msg= "<p style=\"color: red; background-color: lightcoral; padding: 0.5em; width: 100%; text-align: center\">Veuillez remplir les champs </p>";
+                }
+
+
+ # style.css
+ Notre deuxiéme fichier est le CSS :
+
+
+ # PHPMailer
+ Dans ce dossier dont les fichiers ont été copiés sur celui du formulaire_1 nommé PHPMailer-master principalement dans src. Les fichiers qui y ont été copiés ont permis le système d'envoi de message par mail de fonctionner. 
+
+ Les fichiers copiés et collés sur PHPMailer :
+
+            Exception.php
+
+            PHPMailer.php
+
+            SMTP.php
+            
