@@ -210,3 +210,5 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
             $mail->addReplyTo(); 
 
             Les mêmes données sont mises sur addReplyTo(); 
+
+    Après c'est la partie représentant le corps de l'email c'est-à-dire ce que le destinataire verra lorsque l'email sera envoyé pour cela $mail->isHTML().
