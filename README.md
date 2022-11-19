@@ -1,100 +1,97 @@
 # sendMail
-<<<<<<< HEAD
-Dans notre repository, nous avons  le dossier formulaire_1 
+Dans notre repository, nous avons  le dossier formulaire_1  et le dossier formulaire_2.
 
 # formulaire_1
-Dans ce dosser se trouve trois fichiers et un dossier. Parmi ces trois (3) fichiers se trouve :
-  
-  # index.php
-  C'est le fichier principal celui qui contient le formulaire mais aussi les codes php permettant d'envoyer un message
-  par email. En ce qui concerne le formumaire  ce sont les codes suivants qui sont utilisés :
-=======
-Ce projet consiste à faire des tests sur les systèmes d'envoi de messages dans des comptes emails (gmail ou autres ...). Pour ce faire, nous allons nous basés sur des formulaires . Le premier va nous permettre d'envoyer des messages à n'importe quel compte email. Le deuxième, nous permettra d'envoyer des messages à partir d'un email comme sur les sites web, précisément les formulaires de contact. 
-# formulaire_1
-Dans ce dossier nous avons trois fichiers et un dosser PHPMailer. Cest trois fichiers sont : 
+Dans ce dossier nous avons trois fichiers et un dosser PHPMailer. Ces trois fichiers sont : 
   # 1-index.php
-  Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master en utilisation le fichier sendMail.php qui gère cette liaison. C'est dans notre index que nous retrouvons la partir visible du projet avec les balises et le link avec le fichier css permettant d'avoir un formulaire présentable. Ainsi vous verrez ci-dessous les codes utilisés pour créer notre formulaire.
+  Dans celui-ci figure notre formulaire contenant le script permettant de créer une liaison avec le dossier PHPMailer-master en utilisation le fichier sendMail.php qui gère cette liaison. C'est dans notre index que nous retrouvons la partir visible du projet avec les balises et le link vers le fichier css permettant d'avoir un formulaire beau à voir. Vous verrez ci-dessous les codes utilisés pour créer notre formulaire.
 
-   exemple: 
->>>>>>> 76b961f9495b5b1c95bd754d2437307fffd4560e
+   exemple: HTML
 
-    <center>
-        <form action="" method="post">
-            <h2>Formulaire d'envoi de message à un destinataire</h2>
-            <?= $msg ?>
-           
-            <input type="email" name="mail" id="email" placeholder="Entrez l'Adresse Email du Destinataire ">
-            <input type="text" name="sujet" id="sujet" placeholder="Entrez l'objet de votre message">
-<<<<<<< HEAD
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Veuillez écrire votre message"></textarea>
-=======
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrivez votre message"></textarea>
->>>>>>> 76b961f9495b5b1c95bd754d2437307fffd4560e
-            <input type="submit" name="soumette" value="Envoyer" id="bouton">
-        </form>
-    </center>
+         <center>
+                <form action="" method="post">
+                    <h2>Formulaire d'envoi de message à un destinataire</h2>
+                    <?= $msg ?>
+                    <input type="email" name="mail" id="email" placeholder="Entrez l'Adresse Email du Destinataire ">
+                    <input type="text" name="sujet" id="sujet" placeholder="Entrez l'objet de votre message">
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrivez votre message"></textarea>
+                    <input type="submit" name="soumette" value="Envoyer" id="bouton">
+                </form>
+            </center>
 
-<<<<<<< HEAD
+
 Cette partie reste facile et libre à faire pour tout codeur.
 
-La partie qui va suivre est constitué la plus importante car c'est grâce à elle que le système d'envoi marche. Elle est la suivante :
+La partie qui va suivre est la plus importante car c'est grâce à elle que le système d'envoi marche. Elle est la suivante :
 
-<?php
-require 'sendMail.php'; 
+    Exemple :PHP
 
-$msg= "";
-if(count($_POST) > 0){
-     $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
-    $subject= $_POST['sujet']; // L'objet de votre Message
-    $message= $_POST['message']; // Le message lui-même
+                 if( send_mail($recipient, $subject, $message)){
+                if(empty($recipient)){
+                    $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
+                }
+                if (empty($subject)) {
+                    $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral, padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer l'objet de votre message</p>";
+        }   
 
-    if( send_mail($recipient, $subject, $message)){
-=======
+                if(empty($message)){
+                    $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
+                }
+
+                $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>";
+            } else {
+                $msg = "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Désolé votre message n'a pas été envoyé, Veuillez réessayer </p>";
+            }
+   
+        } 
+
+
 En vue de faire fonctionner notre formulaire, des scripts php ont été mis à ce niveau. Pour commencer une lisaison a été créée avec le fifhier 'sendMail.php' dossier sur lequel figure notre systéme. 
 
     exemple : require 'sendMail.php';
 
 Après c'est la variable $msg  pour recevoir tous les messages que notre formulaire émettra lorsqu'une requête sera faite par l'expéditeur. 
   exemple :
-Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce aux codes suivants.
 
-
+        Si le message est envoyé , le formulaire nous indiquera que celui-ci est envoyé grâce aux codes suivants.
         $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>
+
+        Si tel n'est pas le cas : 
         $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
 
 
 Suite à cela pour permettre le fonctionnement du systéme, des conditions sont utilisées :
 
 
-    if(count($_POST) > 0){
-         $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
+            if(count($_POST) > 0){
+                 $recipient = $_POST['mail']; // L'adresse email devant recevoir le message
 
-        $subject= $_POST['sujet']; // L'objet de votre Message
+                $subject= $_POST['sujet']; // L'objet de votre Message
 
-        $message= $_POST['message']; // Le message lui-même
+                $message= $_POST['message']; // Le message lui-même
 
-        if( send_mail($recipient, $subject, $message)){
-            if(empty($recipient)){
-                $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
-            }
-            if (empty($subject)) {
-                 $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral, padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer l'objet de votre message</p>";
-            }   
+                if( send_mail($recipient, $subject, $message)){
+                    if(empty($recipient)){
+                        $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
+                    }
+                    if (empty($subject)) {
+                        $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral, padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer l'objet de votre message</p>";
+                    }   
 
-            if(empty($message)){
-                $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
-            }
+                    if(empty($message)){
+                        $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
+                    }
 
-            $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>";
-        } else {
-            $msg = "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Désolé votre message n'a pas été envoyé, Veuillez réessayer </p>";
-        }
+                    $msg = "<p style=\"width: 100%; color: green; background-color: lightgreen; padding: 1em 0; margin: 0.5em; margin: auto\">Message envoyé avec succès ! </p>";
+                } else {
+                    $msg = "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Désolé votre message n'a pas été envoyé, Veuillez réessayer </p>";
+                }
    
-    } 
+            } 
 
 La première condition énumérée s'explique du fait  que si nous avons un élément qui est supérieur à 0 figurant sur les champs de notre formulaire, alors les codes qui sont dans cette condition s'executent. Rappelons que la fonction count() permet de compter un nombre d'éléments. Ici elle nous permet de compter le nombre d'élément se trouvant sur $_POST. C'est-à-dire ces derniéres:  $_POST['mail'];  $_POST['sujet'];  $_POST['message'];
-Dans cette condition se trouve les variables $recipient, $subject et $message qui reçoivent pour la première les adresses emails des destinaires avec $_POST['mail'], la deuxième l'objet de chaque message et la troisième les messages. 
-Suite à ces variables une autre condition est créée servant d'envoyer les requêtes (messages, mail, nom) sur un compte email. Pour ce faire c'est la fonction send_mail() copiée sur le fichier sendMail.php qui est utilisées.
+Dans cette condition se trouve également les variables $recipient, $subject et $message qui reçoivent pour la première les adresses emails des destinaires avec $_POST['mail'], la deuxième l'objet de chaque message et la troisième les messages. 
+ A  ces variables une autre condition est créée servant d'envoyer les requêtes (messages, mail, nom) sur un compte email. Pour ce faire c'est la fonction send_mail() copiée sur le fichier sendMail.php qui est utilisées.
 
    exemple :
 
@@ -103,19 +100,18 @@ Suite à ces variables une autre condition est créée servant d'envoyer les req
         if( send_mail($recipient, $subject, $message)) // sur index.php
 
 
-Donc cette condition la fonction send_mail() nous permet d'envoyer des messages si les variables $recipient, $subject et $message comportent chacune des éléments supérieurs à 0.  Ainsi d'autres conditions ont été posées dans celle expliquée. Ces conditions permettant de restructurer le fonctionnement du systéme d'envoi et de notre formulaire afin d'éviter des erreurs. 
+DonC ici la fonction send_mail() nous permet d'envoyer des messages si les variables $recipient, $subject et $message comportent chacune des éléments supérieurs à 0. Et aussi d'autres conditions ont été posées dans celle-ci. Ces conditions là permettent de restructurer le fonctionnement du systéme d'envoi de notre formulaire afin d'éviter des erreurs. 
 
    exemple :
   
->>>>>>> 76b961f9495b5b1c95bd754d2437307fffd4560e
         if(empty($recipient)){
             $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer votre email</p>";
         }
+
         if (empty($subject)) {
             $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral, padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez entrer l'objet de votre message</p>";
         }   
 
-<<<<<<< HEAD
         if(empty($message)){
             $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
         }
@@ -125,21 +121,12 @@ Donc cette condition la fonction send_mail() nous permet d'envoyer des messages 
         $msg = "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Désolé votre message n'a pas été envoyé, Veuillez réessayer </p>";
     }
    
-} 
-
-Le 
-=======
-        if(empty($message)) {
-            $msg= "<p style=\"width: 100%; color: red; background-color: lightcoral; padding: 1em 0; margin: 0.5em; margin: auto\">Veuillez écrire votre message </p>";
-        }
-
-
 
   # 2-sendMail.php
 
   Ce fichier permet à celui du précédent de fonctionner ou de faire fonctionner le systéme d'envoi de message par email . On peut dire que c'est celui de la configuration . Afin de comprendre ce fichier php il serait intéressant de le détailler .
 
-  Pour connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée .
+  Pour connecter les fichiers à ceux qui se trouvent dans le dossier PHPMailer-master la fonction require() est utilisée afin de les importer à notre page.
 
   exemple:
 
@@ -150,7 +137,7 @@ Le
         require 'PHPMailer-master/src/SMTP.php';
 
 
-  Ensuite c'est la fonction send_mail() que l'on retrouve avec les mêmes variables du précédent fichier.
+  Ensuite c'est la fonction send_mail() que l'on retrouve avec les mêmes variables que le précédent fichier.
   Dans cette fonction nous retrouvons aussi la variable $mail qui recoit new PHPMailer() et à qui on affecte d'autres objets et fonctions. Parmi eux nous allons évoqués les plus importants et utiles.
 
    # $mail->Host = ''; 
@@ -173,7 +160,11 @@ Le
     $mail->Username = 'exemple@gmail.com';
 
    # $mail->Password = '';
-   A ce niveau il est plus prudent de mettre si votre compte est protégé " une mot de passe des applications" quand vous utilisez un compte Gmail . Pour ce faire, il faut vous connecter dans votre compte précisément sur l'interface "Google compte" vous cliquez sur Sécurité  ensuite vous défilez un peu vers le bas vous verrez "Connexion à Google". Arriver à ce niveau , après Mot de Passe et Validation en deux étapes qui doit être active ou activée  il faut maintenant cliquer sur "Mots de passe des applications". Là on vous demandera d'entrer le mot de passe de votre compte. Aprés vous serez dans l'interface "Mots de passe des applications" vous cliquez sur "Sélectionner une l'application" puis sur "Autre (Nom personnalisé)"; il vous sera demandé d'entrer le nom de l'application, de ce fait, vous choisissez simplement "sendmail" ou le nom que vous voulez mais qui sera différent de ceux qu'on a déjà mis et enfin vous cliquez sur Générer. Ainsi une clé sera générée. C'est elle que vous allez copier et coller ici $mail->Password = ''; .
+   A ce niveau il est plus prudent de mettre si votre compte est protégé " une mot de passe des applications" quand vous utilisez un compte Gmail . Pour ce faire, il faut vous connecter dans votre compte précisément sur l'interface "Google compte", vous cliquez sur Sécurité  ensuite vous défilez un peu vers le bas vous verrez "Connexion à Google". Arriver à ce niveau , après Mot de Passe et Validation en deux étapes qui doit être active ou activée  il faut maintenant cliquer sur "Mots de passe des applications". Là on vous demandera d'entrer le mot de passe de votre compte. Aprés vous serez dans l'interface "Mots de passe des applications". Là vous cliquez sur "Sélectionner une l'application" puis sur "Autre (Nom personnalisé)"; il vous sera demandé d'entrer le nom de l'application, de ce fait, vous choisissez simplement "sendmail" ou le nom que vous voulez mais qui sera différent de ceux qu'on a déjà mis et enfin vous cliquez sur Générer. Ainsi une clé sera générée. C'est elle que vous allez copier et coller dans password.
+
+    Exemple :
+   
+             $mail->Password = 'DhjdfkHKkhkHknoefi'; 
     
 
    # $mail->SetFrom("Mettez votre email ici", "Mettez votre nom ici");
@@ -199,7 +190,7 @@ Représentant notre deuxième et dernier formulaire, ce dossier a deux fichiers 
 # index.php
 Pour expliquer notre page ou fichier index.php nous allons le cinder en deux parties : l'une avec les codes html et l'autre avec les scripts php. 
 
-- La première partie : facile pour tout codeur donc ce n'est pas la peine d'expliquer. 
+- La première partie : facile pour tout codeur donc ce n'est pas la peine de l'expliquer. 
 
 exemple: 
 
@@ -226,9 +217,9 @@ exemple:
 
 
 - la deuxième partie: elle est la plus importante mais la plupart des codes ont été déjà vus avec le formulaire_1.
-Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rien en dehors de notre condition mais qui a le même rôle que celui du premier formulaire, de même pour "use". Ils sont suivis par une condition :
+Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rien en dehors de notre condition mais elle a le même rôle que celle du premier formulaire, de même pour "use". Ils sont suivis par une condition :
 
-     if(isset($_POST['envoi']))  Dans cette condition nous cherchons à savoir si $_POST['envoi'] existe . Si tel est le cas alors les codes qui sont en son sein s'executent. Parmi eux on retrouve la fonction require() qui transporte les données qui se trouvent dans les fichiers mentionnés dans la fonction à partir du dossier PHPMailer. Les codes suivants sont identiques à ceux du formulaire_1. Comme vous le voyez ci-dessous.
+     if(isset($_POST['envoi']))  Dans cette condition nous cherchons à savoir si $_POST['envoi'] existe . Si tel est le cas alors les codes qui sont en son sein s'executent. Parmi eux on retrouve la fonction require() qui transporte les données qui se trouvent dans les fichiers mentionnés à partir du dossier PHPMailer. Les codes suivants sont identiques à ceux du formulaire_1. Comme vous le voyez ci-dessous.
 
      Exemple : 
 
@@ -251,14 +242,14 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
 
             $mail->setFrom(); 
 
-            Ci-dessus, au lieu de mettre directement l'email et le nom de son expéditeur, il sera mis $_POST['mail'] et $_POST['nom'] en vue de récupérer l'email et le nom qui seront entrer par l'expéditeur à partir du formulaire.
+            Dans setFrom(), au lieu de mettre directement l'email et le nom de son expéditeur, il sera mis $_POST['mail'] et $_POST['nom'] en vue de récupérer l'email et le nom qui seront entrer par l'expéditeur à partir du formulaire.
 
             $mail->addReplyTo(); 
 
             Les mêmes données sont mises sur addReplyTo(); 
 
 
-     Après c'est la partie représentant le corps de l'email c'est-à-dire ce que le destinataire verra lorsque l'email sera envoyé. Pour cela $mail->isHTML() le préside. Il est suivi par   $mail->Subject = $_POST['sujet'];  qui fait référence à l'objet du message. Puis de $mail->Body = $body; pour lequel j'ai affecté $body qui est un choix fait pour structurer la présentation du message lorsque le destinataire le verra vous pourrez faire autrement.
+     Après c'est la partie représentant le corps de l'email c'est-à-dire ce que le destinataire verra lorsque l'email sera envoyé. Pour cela, le code suivant est mis $mail->isHTML() . Il est suivi par   $mail->Subject = $_POST['sujet'];  qui fait référence à l'objet du message. Puis de $mail->Body = $body; pour laquelle j'ai affecté $body qui est un choix fait dans le but de structurer la présentation du message lorsque le destinataire le verra. Par contre vous pourrez faire autrement.
 
         Exemple:
 
@@ -271,7 +262,7 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
             $mail->Body = $body;
 
 
-    Suite à ça une autre condition est créée pour envoyer des messages dans celle-ci la fonction permettant d'envoyer un mail est utilisé send(). Dans cette cette condition si le message est envoyé l'expéditeur verra sur le formulaire un message lui indiquant que c'est fait. Par contre si tel n'est pas le cas il verra un message indiquant le contraire. Tout cela grâce à la variable $msg .
+    Suite à ça une autre condition est créée dans celle-ci pour envoyer les messages avec la fonction send(). Dans cette condition si le message est envoyé l'expéditeur verra sur le formulaire un message lui indiquant que c'est fait. Par contre si tel n'est pas le cas il verra un message indiquant le contraire. Tout cela grâce à la variable $msg .
 
         Exemple
 
@@ -283,8 +274,7 @@ Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rie
                     $msg= "<p style=\"color: red; background-color: lightcoral; padding: 0.5em; width: 100%; text-align: center\">Une erreur s'est produite. Veuillez réessayer </p>";
                 }
         
-        NB: La Condition ci-dessous est ajoutée pour que lorsque les champs sont vides aucun envoi ne se fera.
-
+        NB: La Condition ci-dessous est ajoutée juste éviter d'envoyer des messages sans adresse email et qui n'on ni de contenu.
 
                  if(!empty($_POST['nom']) && !empty($_POST['mail']) && !empty($_POST['message'])){
 
