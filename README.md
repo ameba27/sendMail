@@ -182,4 +182,23 @@ exemple:
 - la deuxième partie: elle est la plus importante mais la plupart des codes ont été déjà vus avec le formulaire_1.
 Concernant cette partie, après avoir créé la variable $msg qui ne reçoit rien en dehors de notre condition mais qui a le même rôle que celui du premier formulaire, de même pour "use". Ils sont suivis par une condition :
 
-     if(isset($_POST['envoi']))  Dans cette condition nous cherchons à savoir si $_POST['envoi'] existe . Si tel est le cas alors les codes qui sont en son sein s'executent. En son sein on retrouve la fonction require() qui transporte les données qui trouvent dans 
+     if(isset($_POST['envoi']))  Dans cette condition nous cherchons à savoir si $_POST['envoi'] existe . Si tel est le cas alors les codes qui sont en son sein s'executent. Parmi eux on retrouve la fonction require() qui transporte les données qui se trouvent dans les fichiers mentionnés dans la fonction à partir du dossier PHPMailer. Les codes suivants sont identiques à ceux du formulaire_1. Comme vous le voyez ci-dessous.
+
+     Exemple : 
+
+             require 'PHPMailer/PHPMailer.php';
+             require 'PHPMailer/SMTP.php';
+             require 'PHPMailer/Exception.php';
+
+             $mail= new PHPMailer();
+
+             $mail->isSMTP();
+             $mail->SMTPAuth = true;
+             $mail->Host = 'smtp.gmail.com';  // SMTP de Gmail
+             $mail->Port = '587'; //numéro de Gmail
+             $mail->SMTPSecure = 'tls';  
+             $mail->Username = ''; //l'adresse email de votre site ou l'adresse email réceptrice des messages
+             $mail->Password = ''; // Mot de passe des applications comme expliqué sur le formulaire_1
+
+    
+    
